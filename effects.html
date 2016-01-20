@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+      <script src="../jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //register click event for buttons
+
+            $("#fadeButton").click(function () {
+                $("#div1").fadeOut(5000);
+            });
+
+            $("#showButton").click(function () {
+                $("#div1").show(2000);
+            });
+
+            $("#slideButton").click(function () {
+                $("#div2").slideToggle(1000);
+            });
+
+            $("#animateButton").click(function () {
+                $("#div3").animate({ left: '600px', top: '400px' },2000, reset);
+            });
+        }
+        );
+
+
+        function reset() {
+            $("#div3").css({ "left": "10px", "top": "200px" });
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <div id="div1">This is first DIV</div>
+    <div id="div2">
+        This is Second DIV.
+        <p />
+        This has some text in multiple lines.
+    </div>
+
+    <div id="div3" style="left:10px;top:200px;position:absolute">This is Third DIV</div>
+
+    <p />
+
+    <input id="fadeButton" type="button" value="Fade Out DIV1" />
+    <input id="showButton" type="button" value="Show DIV1" />
+    <input id="slideButton" type="button" value="Slide Div2" />
+    <input id="animateButton" type="button" value="Aninate Div3" />
+    
+
+
+</body>
+</html>
