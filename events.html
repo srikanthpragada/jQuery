@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(
+           function () {
+               $("#output").mousemove(
+                   function (event) {
+                       $("#msg").text(event.offsetX+ ":" + event.offsetY);
+                   }
+               );
+
+               $("#b1").click(function () { alert("You Clicked On Button1"); });
+
+               $("#b2").on("mouseenter mouseleave",
+                   function () {
+                       console.log(event.type);
+                       event.stopPropagation();
+                   }
+               );
+
+               //$("div").on("mouseenter mouseleave",
+               //    function () {
+               //        console.log("Div event : " + event.type);
+               //    }
+               //);
+           }
+
+        );
+    </script>
+</head>
+<body>
+    <div>
+        <button id="b1">Button One</button>
+        <button id="b2">Second Button</button>
+    </div>
+    <p/>
+    <div id="output" style="background-color:gray;height:100px">
+        Move mouseover here....
+    </div>
+    <div id="msg">
+
+    </div>
+</body>
+</html>
