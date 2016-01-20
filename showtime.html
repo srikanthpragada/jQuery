@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        .output {
+             color:red;
+             font:800 20pt arial;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $("#btnShow").click(function (event) {
+                $(".output").html(new Date().toString());
+            });
+        });
+
+
+    </script>
+
+</head>
+<body>
+    <button id="btnShow">Show Time</button>
+    <div class="output"></div>
+</body>
+</html>
