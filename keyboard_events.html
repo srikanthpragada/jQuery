@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(
+             function () {
+                 $("#name").keypress(
+                      function (event) {
+                          if (!((event.which >= 65 && event.which <= 90) || (event.which >= 97 && event.which <= 122) || event.which == 32))
+                             event.preventDefault();
+                      }
+                 );
+  
+             }
+        );
+
+    </script>
+</head>
+<body>
+    <h2>Keyboard Events Demo</h2>
+    Your First Name : <input type="text" id="name" />
+    
+</body>
+</html>
