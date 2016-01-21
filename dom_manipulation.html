@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $("#chkDetails").click(function () {
+                // alert($("#chkDetails")[0].checked);
+                if (!this.checked)
+                    $("#divDetails").fadeOut();
+                else
+                    $("#divDetails").fadeIn();
+            }
+            );
+
+            // add handler
+            $("#btnAdd").click(function () {
+                var name = $("#txtName").val();
+                $("#lstNames").append("<option>" + name + "</option>");
+            });
+
+            $("#btnDelete").click(function () {
+                var list = $("#lstNames")[0];  // select first object in the collection
+                // list is a HTMLSelectElement 
+                list.remove(list.selectedIndex);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="checkbox" id="chkDetails" checked="checked" />Show Details
+    <div id="divDetails">
+        Here are some details!
+    </div>
+    <hr/>
+    Name : <input type="text" id="txtName" />
+    <button id="btnAdd">Add</button>
+    <p/>
+    <select id="lstNames" size="5" style="width:200px"  multiple  >
+    </select>
+    <p/>
+    <button id="btnDelete">Delete</button>
+
+
+
+</body>
+</html>
