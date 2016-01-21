@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+    <style>
+        .hide { visibility : hidden; color:green }
+        .show { visibility : visible; color:red}
+    </style>
+     
+    <script>
+        
+        $(function () {
+            $("#b1").click(show);
+        });
+        
+        function show() {
+            // show children of d1
+            $("#msg").html("<h3>Children of D1</h3>");
+            $("#d1").children().each(function (idx, e) {
+                $("#msg").append( e.innerText + "<hr/>");
+            });
+
+            // Ancestors of d3
+            $("#msg").append("<h3>Parents of D3</h3>");
+            $("#d3").parents().each(function (idx, e) {
+                $("#msg").append(e.tagName + " : "  + e.id  + "<hr/>");
+            });
+
+            // Sibilings of d2_1
+            $("#msg").append("<h3>Siblings of d2_1</h3>");
+            $("#d2_1").siblings().each(function (idx, e) {
+                $("#msg").append(e.id + "<hr/>");
+            });
+        }
+    </script>
+  
+</head>
+<body>
+     
+    <div id="d1">
+         Div 1
+         <div id="d2_1">
+             Div 2.1
+         </div>
+         <div id="d2_2">
+            Div 2.2
+             <div id="d3">
+                 Div 3
+             </div>
+         </div>
+         <div id="d2_3">
+            Div 2.3
+        </div>
+    </div>
+
+    <button id="b1">Show</button>
+    <div id="msg">
+
+    </div>
+</body>
+</html>
