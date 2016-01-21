@@ -32,6 +32,12 @@
             $("#d2_1").siblings().each(function (idx, e) {
                 $("#msg").append(e.id + "<hr/>");
             });
+            
+             // All descendants of d1
+            $("#msg").append("<h3>Descendants of d1</h3>");
+            $("#d1").find("*").each(function (idx, e) {
+                $("#msg").append(e.id + "<hr/>");
+            });
         }
     </script>
   
