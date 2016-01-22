@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+
+    <script type="text/javascript">
+        function getUserInfo() {
+            $("#ajaxicon").show();
+            var promise = $.getJSON("http://api.github.com/users/" + $("#txtName").val(), {},
+                            function (data,status,xhr) {
+                                $("#photo").attr("src", data.avatar_url);
+                             }
+                          );
+
+            promise.fail(function () {
+                $("#photo").attr("src","");
+                alert("Sorry! User not found!");
+            });
+
+            $("#ajaxicon").hide();
+        }
+
+    </script>
+</head>
+<body>
+    Enter Username : <input type="text" id="txtName" value="srikanthpragada" /> 
+
+    <button onclick="getUserInfo()">Get Details</button>
+
+    <img id="ajaxicon"  height="15px" width="50px" src="ajaxicon.GIF" style="visibility:hidden" />
+    <p />
+    <img id="photo" />
+
+</body>
+</html>
