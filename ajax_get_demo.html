@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+
+    <script type="text/javascript">
+        function getDetails()
+        {
+            $.get("https://api.github.com/users/" + $("#txtName").val(), 
+                    function (data) {
+                        $("#details").html(data.email + ", " + data.location);
+                    }
+                   );
+        }
+
+    </script>
+</head>
+<body>
+    Github Username  : <input type="text" id="txtName" style="width:100px" />
+    <button onclick="getDetails()">Get Details</button>
+
+    <div id="details">
+
+    </div>
+
+</body>
+</html>
