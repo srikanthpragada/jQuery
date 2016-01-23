@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+
+    <script type="text/javascript">
+        function getRepos() {
+            $("#ajaxicon").css("visibility", "visible"); // show animation 
+            $.ajax(
+                {
+                    url: "http://api.github.com/users/" + $("#txtName").val() + "/repos",
+                    type: "get",
+                    dataType : "json",
+                    success: function (repos) {
+                        $("#repos").html("");
+                        if (repos.length == 0) {
+                            alert("Sorry! No repositories found");
+                            return;
+                        }
+                        $.each(repos, function (idx, repo) {
+                            if (! repo.private) {
+                                $("#repos").append("<li> <a  target='_blank' href='" + "http://www.github.com/" + $("#txtName").val() + "/" + repo.name + "'>"
+                                    + repo.description + "</a></li>");
+                            }
+                        });
+
+                    },
+                    error: function (x, s, error) {
+                        alert("Sorry! User not found!");
+                    }
+                }
+             );
+        }
+
+    </script>
+</head>
+<body>
+    Enter Username : <input type="text" id="txtName" value="srikanthpragada" /> 
+    <button onclick="getRepos()">Get Repos</button>
+
+    <ul id="repos">
+
+    </ul>
+    
+</body>
+</html>
