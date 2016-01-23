@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+
+    <script type="text/javascript">
+        function getUserInfo() {
+            $("#ajaxicon").css("visibility", "visible"); // show animation 
+            $.ajax(
+                {
+                    url: "http://api.github.com/users/" + $("#txtName").val(),
+                    type: "get",
+                    dataType : "json",
+                    success: function (data) {
+                        $("#photo").attr("src", data.avatar_url);
+                    },
+                    error: function (x, s, error) {
+                        $("#photo").attr("src", "");  //  hide image
+                        $("#divError").html("Sorry! User not found!");
+                    },
+                    complete: function () {
+                        $("#ajaxicon").css("visibility", "hidden"); // hide  animation 
+                    }
+                }
+             );
+        }
+
+    </script>
+</head>
+<body>
+    Enter Username : <input type="text" id="txtName" value="srikanthpragada" /> 
+
+    <button onclick="getUserInfo()">Get Details</button>
+
+    <img id="ajaxicon"  height="15px" width="50px" src="ajaxicon.GIF" style="visibility:hidden" />
+
+    <p />
+    <div id="divError"></div>
+    <img id="photo" />
+
+</body>
+</html>
