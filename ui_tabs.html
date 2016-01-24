@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tabs Demo</title>
+
+    <link rel="stylesheet" href="jquery-ui.css" />
+    <script src="../jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(
+            function () {
+                $("#tabs").tabs();
+            }
+        );
+    </script>
+
+</head>
+<body>
+    <div id="tabs">
+        <ul id="heading">
+            <li><a href="#java">Java</a></li>
+            <li><a href="#msnet">MS.NET</a></li>
+            <li><a href="#oracle">Oracle</a></li>
+            <li><a href="#google">Google</a></li>
+        </ul>
+        <div id="java">
+            The most widely used programming language. It is one langauge for all purposes.
+      <p />
+            <img src="james.jpg" title="James Gosling" />
+        </div>
+        <div id="msnet">
+            The framework from Microsoft to build web and windows applications using high productivity.
+      <p />
+            <img src="anders.jpg" title="Anders  Hejlsberg" />
+        </div>
+        <div id="oracle">
+            A ORDBMS to manage large databases effeciently.    
+      <p />
+            <img src="larry.jpg" title="Larry Ellison" />
+        </div>
+
+        <div id="google">
+            Search engine and Android. 
+            <p />
+            <img src="sergy.jpg" title="Sergy Brin" />
+        </div>
+    </div>
+
+</body>
+</html>
