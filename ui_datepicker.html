@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="jquery-ui.css" />
+    <script src="../jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        
+        $(document).ready(
+            function () {
+                $("#transdate").datepicker(
+                    {
+                        dateFormat: "yy-mm-dd",
+                        changeMonth: true,
+                        changeYear: true,
+                        showAnim: "fold",
+                        showButtonPanel: true
+                    })
+
+                $("#btnShow").click(
+                    function () {
+                        $("h1").html($("#transdate").datepicker("getDate"));
+                    }
+                );
+
+                $("#btnShowDialog").click(
+                  function () {
+                      $("#transdate").datepicker("show");
+                  }
+              );
+            }
+        );
+
+
+
+    </script>
+
+
+</head>
+<body>
+     Transaction Date :  <input type="text" id="transdate" />
+     <p />
+     <button id="btnShow">Show Date</button>
+     <button id="btnShowDialog">Show Date Dialog</button>
+     <h1></h1>
+
+</body>
+</html>
