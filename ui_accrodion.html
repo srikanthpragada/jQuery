@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Accordion Demo</title>
+
+    <link rel="stylesheet" href="jquery-ui.css" />
+    <script src="../jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(
+            function () {
+                $("#accordion").accordion({animate : 500 });
+            }
+        );
+
+    </script>
+
+</head>
+<body>
+
+<div id="accordion" style="height:500px">
+  <h3>Java</h3>
+     <div>
+      The most widely used programming language. It is one langauge for all purposes.
+      <p />
+            <img src="james.jpg" title="James Gosling" />
+     </div>
+
+  <h3>MS.NET</h3>
+  <div>
+    The framework from Microsoft to build web and windows applications using high productivity.
+      <p />
+            <img src="anders.jpg" title="Anders  Hejlsberg" />
+  </div>
+  <h3>Oracle</h3>
+  <div>
+     A ORDBMS to manage large databases effecientluy.    
+      <p />
+            <img src="larry.jpg" title="Larry Ellison" />
+  </div>
+</div>
+
+</body>
+</html>
