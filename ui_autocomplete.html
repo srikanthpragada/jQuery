@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AutoComplete Demo</title>
+
+    <link rel="stylesheet" href="jquery-ui.css" />
+    <script src="../jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        var langs = [
+            "C",
+            "C++",
+            "C#",
+            "COBOL",
+            "Fortran",
+            "Groovy",
+            "Java",
+            "JavaScript",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Visual Basic"
+        ];
+
+        $(document).ready(
+            function () {
+                $("#lang").autocomplete({ source: langs });
+
+                $("#quote").autocomplete(
+                    {
+                        source: "searchquotes.aspx",  // server-side component
+                        delay: 1000,
+                        minLength: 1
+                }
+                );
+            }
+        );
+
+    </script>
+
+</head>
+<body>
+    Select Language :
+    <br />
+    <input type="text" id="lang" />
+
+    <p />
+    Enter Quote : 
+    <br />
+    <input type="text" id="quote" style="width: 200px" />
+
+
+</body>
+</html>
