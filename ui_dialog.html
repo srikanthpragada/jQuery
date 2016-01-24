@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="jquery-ui.css" rel="stylesheet" />
+    <script src="../jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#dialog1").dialog({
+                title: 'Title',
+                modal: true,
+                autoOpen : false,
+                buttons: [
+                    {
+                      text: "Ok",
+                      click: function () { $(this).dialog("close"); }
+                    },
+                    {
+                      text: "Cancel",
+                      click: function () {
+                          alert("About to close....");
+                          $(this).dialog("close");
+                      }
+                   }
+                ]
+            });
+
+            $("#btnShow").click(
+
+                function () {
+                    $("#now").html(new Date().toString());  // change content dynamically
+                    $("#dialog1").dialog("option", "title", "New Title"); // change title dynamically
+                    $("#dialog1").dialog("open");
+                }
+            );
+
+        } 
+        );
+    </script>
+</head>
+<body>
+    <button id="btnShow">Show Dialog</button>
+    <div id="dialog1">
+       <b>Title</b>
+       This is a simple dialog box!
+        <p />
+        <span id="now"></span> 
+    </div>
+
+</body>
+</html>
