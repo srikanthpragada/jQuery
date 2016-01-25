@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+    <script src="highcharts.js"></script>
+    <script src="jquery.highchartTable.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('table.highchart').highchartTable();
+        });
+
+    </script>
+</head>
+<body>
+
+  <table class="highchart" data-graph-container-before="1" 
+         data-graph-type="column" style="visibility:hidden" >
+      <caption>Sales Graph</caption>
+  <thead>
+      <tr>
+          <th>Month</th>
+          <th>Sales</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+          <td>January</td>
+          <td>8000</td>
+      </tr>
+      <tr>
+          <td>February</td>
+          <td>12000</td>
+      </tr>
+
+       <tr>
+          <td>March</td>
+          <td>14000</td>
+      </tr>
+          <tr>
+          <td>April</td>
+          <td>14000</td>
+      </tr>
+   
+
+
+  </tbody>
+</table>
+</body>
+</html>
