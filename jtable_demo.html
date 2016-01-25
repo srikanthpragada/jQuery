@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../themes/lightcolor/red/jtable.css" rel="stylesheet" />
+    <link href="../ui/jquery-ui.css" rel="stylesheet" />
+    <script src="../jquery.js"></script>
+    <script src="../ui/jquery-ui.js"></script>
+    <script src="../json2.js"></script>
+    <script src="jquery.jtable.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#details').jtable({
+                title: 'Contacts',
+                actions: {
+                    listAction : 'contacts.aspx',
+                },
+                fields: {
+                    Name :
+                        {
+                            title: 'Name',
+                            key: true,
+                            list: true,
+                            width: '30%'
+                        },
+                    Email : {
+                        title: 'Email',
+                        width: '40%',
+                        list: true
+                    },
+
+                    Mobile : {
+                        title: 'Mobile',
+                        width: '20%',
+                        list :true
+                    }
+                } 
+            });
+
+           $('#details').jtable('load');
+        });
+
+
+    </script>
+
+
+</head>
+<body>
+
+    <div id="details"></div>
+</body>
+</html>
