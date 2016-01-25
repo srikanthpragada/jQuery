@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+    <script src="jquery.highchartTable.js"></script>
+     <script src="highcharts.js"></script>
+    <script>
+
+        $(function () {
+            $.getJSON("DeptEmployeeCount.aspx", {}, loadData);
+        }
+        );
+
+        function loadData(data) {
+
+            $.each(data,
+                function (idx, item) {
+                    $("#data").append("<tr><td>" + item.Name + "</td><td>"
+                        + item.Count + "</td><td>" + item.Exp + "</td></tr>");
+                }
+            );
+
+            $('table.graph1').highchartTable();
+        }
+    </script>
+</head>
+<body>
+
+    <table class="graph1" data-graph-container-before="1" data-graph-type="column" style="visibility:hidden">
+        <caption>Employees Salary By Departments</caption>
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Count</th>
+                <th>Experience </th>
+            </tr>
+        </thead>
+        <tbody id="data">
+        </tbody>
+    </table>
+
+</body>
+</html>
