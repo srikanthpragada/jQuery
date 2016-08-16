@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>State and City</title>
+    <script src="jquery.js"></script>
+    <script>
+        var states = [
+             {
+             'name': 'Andhra Pradesh',
+             'cities': ['Vizag', 'Vijayawada', 'Nellore', 'Guntur', 'Tirupathi']
+             },
+             {
+              'name': 'Telangana',
+              'cities': ['Hyderabad', 'Warangal', 'Secendrabad', 'Kazipet']
+             },
+             {
+               'name': 'Tamilnadu',
+               'cities': ['Chennai', 'Coimbatore']
+             }
+        ];
+
+        $(function () {
+
+            for (var idx in states) {
+                var state = states[idx];
+                $('#states').append(new Option(state.name));
+            }
+
+            $("#states").change(function () {
+                if ($("#states").val() === 'all') {
+                    $("#cities").html(""); // clear options 
+                    return;
+                }
+
+                var state;
+                for (var idx in states) {
+                    state = states[idx];
+                    if (state.name == $("#states").val())
+                        break;
+                }
+
+                $("#cities").html(""); // clear all
+
+                // add options to cities
+                for (var city of state.cities) {
+                    $('#cities').append(new Option(city));
+                }
+
+            });
+        })
+    </script>
+</head>
+<body>
+    Select State :
+    <select id="states">
+        <option value="all">Select State</option>
+    </select>
+    Select City
+    <select id="cities"></select>
+
+</body>
+</html>
