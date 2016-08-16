@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery.js"></script>
+    <style>
+        .hide { visibility : hidden; color:green }
+        .dark { background-color:gray}
+    </style>
+     
+    <script>
+        $(document).ready
+            (
+              function () {
+                  $("#cb").click(show_hide);
+                  $("#cbColor").click(change_color);
+              }
+            );
+
+        function show_hide() {
+            var cb = $("#cb").is(":checked");
+            // cb = this.checked; 
+            if (!cb)
+                $("#details").addClass("hide");
+            else
+                $("#details").removeClass("hide");
+        }
+
+        function change_color() {
+            $("#details").toggleClass("dark");
+        }
+        
+    </script>
+  
+</head>
+<body>
+    <input id="cb" type="checkbox" checked />Show Details
+    <p/>
+    <input id="cbColor" type="checkbox" />Dark Background
+    <p/>
+    <div id="details">
+         This is some text...
+         <p/>
+         This is some more text...
+    </div>
+
+</body>
+</html>
