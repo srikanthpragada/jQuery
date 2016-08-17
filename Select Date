@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Select Date</title>
+    <script src="jquery.js"></script>
+    <script>
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        $(function () {
+            // fill day dropdown
+            for(var i = 1; i <= 31; i ++)
+            {
+                $("#day").append(new Option(i,i));
+            }
+
+            // fill month  dropdown
+            var i = 1;
+            for (var m of months)
+            {
+                $("#month").append(new Option(m,i));
+                i++;
+            }
+            // fill year dropdown
+            var d = new Date();
+            for(var i = 2000; i <= d.getFullYear(); i ++)
+            {
+               $("#year").append(new Option(i));
+            }
+
+        });
+
+            function show() {
+                var sdate = $("#day").val() + "-" + $("#month").val() + "-" + $("#year").val();
+                alert(sdate);
+            }
+    </script>
+</head>
+<body>
+     <h2>Select Date</h2>
+     <select id="day"></select>
+     <select id="month"></select>
+     <select id="year"></select>
+    <p/>
+     <button onclick="show()">Show Selected Date</button>
+
+</body>
+</html>
