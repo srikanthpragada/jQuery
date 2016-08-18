@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery.js"></script>
+
+    <script type="text/javascript">
+        $( function() {
+            $.getJSON("http://api.github.com/users/srikanthpragada/repos",
+                      {}, // data
+                      function (data)    // callback function
+                      {
+                        $.each(data,
+                            function (idx, e) {
+                              $("#repos").append("<li>" + e.name + "," + e.description + "</li>");
+                             }
+                        );
+                     } // end of callback 
+           ); // getJSON()
+        }); 
+
+    </script>
+</head>
+<body>
+      <ul id="repos">
+
+      </ul>
+    
+
+</body>
+</html>
